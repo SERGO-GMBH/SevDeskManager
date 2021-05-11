@@ -1,0 +1,38 @@
+﻿<Window x:Class="SERGO.SevDeskManager.WindowsUI.Windows.InvoiceCostCentre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SERGO.SevDeskManager.WindowsUI.Windows"
+        mc:Ignorable="d"
+        Title="Kostenstellen Anpassung für Rechnungen" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="InvoiceList" AutoGenerateColumns="False" ItemsSource="{Binding Invoices}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding InvoiceNumber}" Header="Rechnungsnummer" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding AddressName}" Header="Adresse" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding SumNet}" Header="Netto" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding SumGross}" Header="Brutto" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding SumTax}" Header="Steuer" IsReadOnly="True" />
+                
+                <DataGridComboBoxColumn 
+                    Header="Kostenstelle"
+                    SelectedValueBinding="{Binding CostCentre.Id, Mode=TwoWay}" 
+                    SelectedValuePath="Id">
+                    <DataGridComboBoxColumn.ElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding Path=DataContext.CostCentres, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                        </Style>
+                    </DataGridComboBoxColumn.ElementStyle>
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding Path=DataContext.CostCentres, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                            <EventSetter Event="SelectionChanged" Handler="ComboBox_SelectionChanged"></EventSetter>
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
