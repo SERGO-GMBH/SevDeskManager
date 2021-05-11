@@ -4,8 +4,21 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>SERGO.SevDeskManager.WindowsUI</AssemblyName>
+    <AssemblyName>SevDesk Manager</AssemblyName>
     <RootNamespace>SERGO.SevDeskManager.WindowsUI</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <ApplicationIcon>assets\icon-144x144.ico</ApplicationIcon>
+    <AssemblyOriginatorKeyFile>SevDeskManager.pfx</AssemblyOriginatorKeyFile>
+    <Version>0.1-alpha</Version>
+    <Authors>SERGO GmbH</Authors>
+    <Company>SERGO GmbH</Company>
+    <Description>Der SevDesk Manager ist keine offizielle Anwendung von SevDesk. Es handelt sich hierbei um ein quelloffenes Community Projekt um SevDesk um fehlende Funktionen zu erweitern.</Description>
+    <Copyright>SERGO GmbH</Copyright>
+    <PackageProjectUrl>https://github.com/SERGO-GMBH/SevDeskManager/</PackageProjectUrl>
+    <PackageIcon>icon-144x144.png</PackageIcon>
+    <RepositoryUrl>https://github.com/SERGO-GMBH/SevDeskManager/</RepositoryUrl>
+    <NeutralLanguage>de-DE</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +27,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SevDesk.API\SevDesk.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="assets\icon-144x144.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

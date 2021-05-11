@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SERGO.SevDeskManager.WindowsUI.Windows"
         mc:Ignorable="d"
-        Title="Kostenstellen Anpassung für Belege" Height="450" Width="800">
+        Title="SevDesk Manager - Kostenstellen Anpassung für Belege" Height="450" Width="800">
     <Grid>
         <DataGrid Name="InvoiceList" AutoGenerateColumns="False" ItemsSource="{Binding Vouchers}">
             <DataGrid.Columns>
