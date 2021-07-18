@@ -1,0 +1,53 @@
+﻿<Page x:Class="SERGO.SevDeskManager.WindowsUI.Windows.Pages.VoucherListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SERGO.SevDeskManager.WindowsUI.Windows.Pages"
+      xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VoucherListPage">
+
+    <Grid>
+        <MediaElement x:Name="loader" UnloadedBehavior="Play" Source="assets\loading.gif" LoadedBehavior="Play" Stretch="None" Visibility="Visible"/>
+        
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
+            <DataGrid Name="VoucherList" AutoGenerateColumns="False" ItemsSource="{Binding Vouchers, IsAsync=True}" CanUserAddRows="False" CanUserDeleteRows="False" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="true" />
+                    <DataGridTextColumn Binding="{Binding Description}" Header="Beschreibung" IsReadOnly="true" />
+                    <DataGridTextColumn Binding="{Binding SupplierNameAtSave}" Header="Lieferrant" IsReadOnly="true" />
+                    <DataGridTextColumn Binding="{Binding SumNet, StringFormat={}{0:N} €, ConverterCulture=de-DE}" Header="Netto" IsReadOnly="true" />
+                    <DataGridTextColumn Binding="{Binding SumGross, StringFormat={}{0:N} €, ConverterCulture=de-DE}" Header="Brutto" IsReadOnly="true" />
+                    <DataGridTextColumn Binding="{Binding SumTax, StringFormat={}{0:N} €, ConverterCulture=de-DE}" Header="Steuer" IsReadOnly="true" />
+
+                    <DataGridComboBoxColumn 
+                        Header="Kostenstelle"
+                        SelectedValueBinding="{Binding CostCentre.Id, Mode=TwoWay}" 
+                        SelectedValuePath="Id">
+                        <DataGridComboBoxColumn.ElementStyle>
+                            <Style TargetType="{x:Type ComboBox}">
+                                <Setter Property="ItemsSource" Value="{Binding Path=DataContext.CostCentres, RelativeSource={RelativeSource AncestorType={x:Type Page}}}" />
+                            </Style>
+                        </DataGridComboBoxColumn.ElementStyle>
+                        <DataGridComboBoxColumn.EditingElementStyle>
+                            <Style TargetType="{x:Type ComboBox}">
+                                <Setter Property="ItemsSource" Value="{Binding Path=DataContext.CostCentres, RelativeSource={RelativeSource AncestorType={x:Type Page}}}" />
+                                <EventSetter Event="SelectionChanged" Handler="ComboBox_SelectionChanged"></EventSetter>
+                            </Style>
+                        </DataGridComboBoxColumn.EditingElementStyle>
+                    </DataGridComboBoxColumn>
+                    
+                    <DataGridTemplateColumn Header="Aktionen">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnView" Content="In SevDesk öffnen" Click="Link__OpenInSevDesk" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>

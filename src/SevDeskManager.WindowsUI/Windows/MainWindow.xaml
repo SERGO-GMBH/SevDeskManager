@@ -1,0 +1,36 @@
+﻿<Window x:Class="SERGO.SevDeskManager.WindowsUI.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SERGO.SevDeskManager.WindowsUI.Windows"
+        mc:Ignorable="d"
+        Title="SevDesk Manager" WindowState="Maximized">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" BorderThickness="0,0,0,1" BorderBrush="#498b6c">
+            <MenuItem Header="Einstellungen">
+                <MenuItem Header="SevDesk API Key" Click="MenuItemClick__SettingsSevDeskApiKey" />
+                <Separator />
+                <MenuItem Header="Beenden" Click="MenuItemClick__SettingsExit" />
+            </MenuItem>
+            <MenuItem Header="Rechnungen">
+                <MenuItem Header="Rechnungen" Click="MenuItemClick__InvoiceCostCentre" />
+                <Separator />
+                <MenuItem Header="Exporte" />
+            </MenuItem>
+            <MenuItem Header="Belege">
+                <MenuItem Header="Belege" Click="MenuItemClick__VoucherCostCentre" />
+                <Separator />
+                <MenuItem Header="Exporte" />
+            </MenuItem>
+        </Menu>
+
+
+        <Frame 
+            DockPanel.Dock="Bottom"
+            Name="PageFrame" 
+            NavigationUIVisibility="Hidden" 
+            ScrollViewer.VerticalScrollBarVisibility="Visible" 
+            ScrollViewer.CanContentScroll="True" />
+    </DockPanel>
+</Window>

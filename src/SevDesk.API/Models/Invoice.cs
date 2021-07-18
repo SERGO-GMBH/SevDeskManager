@@ -26,14 +26,14 @@
 
 
         [JsonPropertyName("sumNet")]
-        public string SumNet { get; set; }
+        public float SumNet { get; set; }
 
 
         [JsonPropertyName("sumGross")]
-        public string SumGross { get; set; }
+        public float SumGross { get; set; }
 
 
         [JsonPropertyName("sumTax")]
-        public string SumTax { get; set; }
+        public float SumTax { get; set; }
     }
 }

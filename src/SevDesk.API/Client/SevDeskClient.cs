@@ -7,6 +7,10 @@
 
     public class SevDeskClient
     {
+        public static readonly string SevDeskVoucherDetailUrl = "https://my.sevdesk.de/#/ex/detail/id/";
+        
+        public static readonly string SevDeskInvoiceDetailUrl = "https://my.sevdesk.de/#/fi/detail/type/SR/id/";
+        
         private const string SevDeskApiUrl = "https://my.sevdesk.de/api/v1/";
 
         private RestClient SevDeskApiClient { get; set; }

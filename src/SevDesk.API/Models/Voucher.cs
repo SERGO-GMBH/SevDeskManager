@@ -1,4 +1,8 @@
-﻿namespace SERGO.SevDesk.API.Models
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+
+namespace SERGO.SevDesk.API.Models
 {
     using System;
     using System.Text.Json.Serialization;
@@ -18,12 +22,12 @@
         public CostCentre CostCentre { get; set; }
 
         [JsonPropertyName("sumNet")]
-        public string SumNet { get; set; }
+        public float SumNet { get; set; }
 
         [JsonPropertyName("sumGross")]
-        public string SumGross { get; set; }
+        public float SumGross { get; set; }
 
         [JsonPropertyName("sumTax")]
-        public string SumTax { get; set; }
+        public float SumTax { get; set; }
     }
 }
